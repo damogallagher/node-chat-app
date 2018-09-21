@@ -1,30 +1,29 @@
 var expect = require('expect');
 
-var { generateMessage, generateLocationMessage } = require('./message');
+var {generateMessage, generateLocationMessage} = require('./message');
 
 describe('generateMessage', () => {
-    it('should generate the correct message object', () => {
-        var from = 'David';
-        var text = 'Hello world';
+  it('should generate correct message object', () => {
+    var from = 'Jen';
+    var text = 'Some message';
+    var message = generateMessage(from, text);
 
-        var message = generateMessage(from, text);
-        expect(message.from).toBe(from);
-        expect(message.text).toBe(text);
-        expect(message.createdAt).toBeTruthy();
-    });
+    expect(message.createdAt).toBeTruthy();
+    expect(message.from).toBe(from);
+    expect(message.text).toBe(text);
+  });
 });
 
 describe('generateLocationMessage', () => {
-    it('should generate the correct location message object', () => {
-        var from = 'David';
-        var latitude = 15;
-        var longitude = 19;
-        var url = 'https://www.google.com/maps?q=15,19'
+  it('should generate correct location object', () => {
+    var from = 'Deb';
+    var latitude = 15;
+    var longitude = 19;
+    var url = 'https://www.google.com/maps?q=15,19';
+    var message = generateLocationMessage(from, latitude, longitude);
 
-        var locationMessage = generateLocationMessage(from, latitude, longitude);
-        expect(locationMessage.from).toBe(from);
-        expect(locationMessage.url).toBeTruthy();
-        expect(locationMessage.url).toBe(url);
-        expect(locationMessage.createdAt).toBeTruthy();
-    });
+    expect(message.createdAt).toBeTruthy();
+    expect(message.from).toBe(from);
+    expect(message.url).toBe(url);
+  });
 });
