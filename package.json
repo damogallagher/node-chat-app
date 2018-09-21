@@ -10,7 +10,8 @@
     "test-coverage": "nyc --reporter=html --reporter=text mocha server/**/*.test.js"
   },
   "engines": {
-    "node": "10.5.0"
+    "node": "10.5.0",
+    "npm": "6.4.1"
   },
   "author": "",
   "license": "ISC",
